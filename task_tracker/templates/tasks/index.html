@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}My Tasks{% endblock %}</h1>
+  <a class="action" href="{{ url_for('tasks.create') }}">New</a>
+{% endblock %}
+
+{% block content %}
+  {% for task in tasks %}
+    <article class="task">
+        <header>
+            <h1>{{ task['title'] }}</h1>
+            <div class="about">Created on {{ task['created'].strftime('%Y-%m-%d') }}</div>
+            <a class="action" href="{{ url_for('tasks.update', id=task['id']) }}">Edit</a>
+            <a class="action" href="{{ url_for('tasks.delete', id=task['id']) }}" onclick="return confirm('Are you sure you want to delete the task?');"> Delete </a>
+        </header>
+        <p class="body">{{ task['body'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
