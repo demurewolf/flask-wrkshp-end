@@ -1,5 +1,5 @@
 # Terrapin Hackers Flask Workshop
-# Task Tracker Web App
+## Task Tracker Web App
 
 Thank you for attending our first workshop of the 2019 semester!
 
